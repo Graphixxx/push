@@ -6,7 +6,7 @@
 /*   By: swilson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/31 07:57:02 by swilson           #+#    #+#             */
-/*   Updated: 2018/07/31 13:15:45 by swilson          ###   ########.fr       */
+/*   Updated: 2018/08/02 13:57:32 by swilson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,6 @@ int		setall(t_data **data, int *in)
 	i = -1;
 	while (++i < (*data)->size)
 		insertlist(data, in[i]);
-	printlist((*data)->head_a);
+//	printlist((*data)->head_a);
 	return (1);
 }
