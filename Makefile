@@ -6,7 +6,7 @@
 #    By: swilson <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/20 09:23:02 by swilson           #+#    #+#              #
-#    Updated: 2018/07/31 13:29:42 by swilson          ###   ########.fr        #
+#    Updated: 2018/08/03 11:33:20 by swilson          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ LIB_NAME = ./libft/libft.a
 
 NAME = pusher
 HEADER = include/push_swap.h
-SRC_NAME = push_swap.c checkall.c setall.c sorting.c
+SRC_NAME = push_swap.c checkall.c setall.c sorting.c get_next_line.c\
+		   isit.c
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))

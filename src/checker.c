@@ -1,29 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: swilson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/29 10:17:25 by swilson           #+#    #+#             */
-/*   Updated: 2018/08/03 11:32:29 by swilson          ###   ########.fr       */
+/*   Created: 2018/08/03 08:35:07 by swilson           #+#    #+#             */
+/*   Updated: 2018/08/03 08:37:37 by swilson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 #include <stdlib.h>
-
-void	printin(int *in, int n)
-{
-	int i;
-
-	i = -1;
-	while (++i < n)
-	{
-		ft_putnbr(in[i]);
-		ft_putchar('\n');
-	}
-}
 
 int		main(int ac, char **av)
 {
@@ -42,17 +30,12 @@ int		main(int ac, char **av)
 			ft_putendl("Error");
 		else if (c == 1)
 		{
+			//printin(input, ac - 1);
 			setall(&list, input);
 			sorting(&list, &c);
 		}
-		if (c)
-		{
-			if (c == 2)
-				ft_putendl("OK");
-			else
-				ft_putendl("Error");
-		}
-
+		if (c == 2)
+			ft_putendl("OK");
 	}
 	free(list);
 	return (0);

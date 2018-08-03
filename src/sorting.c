@@ -6,12 +6,13 @@
 /*   By: swilson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/31 13:17:10 by swilson           #+#    #+#             */
-/*   Updated: 2018/08/02 14:51:04 by swilson          ###   ########.fr       */
+/*   Updated: 2018/08/03 11:35:23 by swilson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 void	printlists(t_node *l_a, t_node *l_b)
 {
@@ -35,7 +36,7 @@ void	printlists(t_node *l_a, t_node *l_b)
 		}
 		printf("\n");
 	}
-	printf("\n");
+	printf("_\t_\n");
 }
 
 void	stack_push(t_node **l_a, t_node **l_b)
@@ -64,24 +65,104 @@ void	stack_swap(t_node **list)
 	(*list)->next->nbr = n;
 }
 
-////////  stack_rot(here)
+void	stack_ss(t_node **l_a, t_node **l_b)
+{
+	stack_swap(l_a);
+	stack_swap(l_b);
+}
+
+
+void	stack_rot(t_node **list)
+{
+	t_node *temp;
+	t_node *last;
+
+	if (!(*list))
+		return ;
+	temp = *list;
+	if (temp->next)
+		*list = (*list)->next;
+	else
+	{
+		free(*list);
+		*list = NULL;
+		return;
+	}
+	(*list)->prev = NULL;
+	last = *list;
+	while (last->next)
+		last = last->next;
+	last->next = temp;
+	temp->next = NULL;
+	temp->prev = last;
+}
+
+void	stack_rrot(t_node **list)
+{
+	t_node *temp;
+	t_node *first;
+
+	if (!(*list) || !(*list)->next)
+		return ;
+	temp = (*list);
+	while (temp->next)
+		temp = temp->next;
+	temp->prev->next = NULL;
+	first = *list;
+	first->prev = temp;
+	temp->next = first;
+	temp->prev = NULL;
+	*list = temp;
+	temp = *list;
+}
+
+void	stack_rrr(t_node **l_a, t_node **l_b)
+{
+	stack_rrot(l_a);
+	stack_rrot(l_b);
+}
+
+void	stack_rr(t_node **l_a, t_node **l_b)
+{
+	stack_rot(l_a);
+	stack_rot(l_b);
+}
 
 void	sorting(t_data **data, int *c)
 {
 	t_node *l_a;
 	t_node *l_b;
+	char *line;
 	int i;
 
 	i = -1;
 	l_a = (*data)->head_a;
 	l_b = (*data)->head_b;
-	stack_swap(&l_a);
-	printlists(l_a, l_b);	
-	stack_push(&l_a, &l_b);	
-	printlists(l_a, l_b);	
-	stack_swap(&l_a);
-	printlists(l_a, l_b);	
-	stack_push(&l_b, &l_a);	
-	printlists(l_a, l_b);	
-	*c = 2;
+	while (get_next_line(1, &line))
+	{
+		if (ft_strequ(line, "sa"))
+			stack_swap(&l_a);
+		if (ft_strequ(line, "sb"))
+			stack_swap(&l_b);
+		if (ft_strequ(line, "ss"))
+			stack_ss(&l_a, &l_b);
+		if (ft_strequ(line, "pb"))
+			stack_push(&l_a, &l_b);	
+		if (ft_strequ(line, "pa"))
+			stack_push(&l_b, &l_a);	
+		if (ft_strequ(line, "ra"))
+			stack_rot(&l_a);
+		if (ft_strequ(line, "rb"))
+			stack_rot(&l_b);
+		if (ft_strequ(line, "rr"))
+			stack_rr(&l_a, &l_b);	
+		if (ft_strequ(line, "rra"))
+			stack_rrot(&l_a);
+		if (ft_strequ(line, "rrb"))
+			stack_rrot(&l_b);
+		if (ft_strequ(line, "rrr"))
+			stack_rrr(&l_a, &l_b);	
+		printlists(l_a, l_b);	
+	}
+	isit(l_a, l_b, c);
 }
