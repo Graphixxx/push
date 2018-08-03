@@ -6,7 +6,7 @@
 /*   By: swilson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/31 13:17:10 by swilson           #+#    #+#             */
-/*   Updated: 2018/08/03 11:35:23 by swilson          ###   ########.fr       */
+/*   Updated: 2018/08/03 15:11:45 by swilson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	printlists(t_node *l_a, t_node *l_b)
 
 	temp = l_a;
 	temp1 = l_b;
+	//ft_putstr("rest---");
+	ft_putnbr(temp->nbr);
 	while (temp || temp1)
 	{
 		if (temp)
@@ -134,7 +136,7 @@ void	sorting(t_data **data, int *c)
 	t_node *l_b;
 	char *line;
 	int i;
-
+	
 	i = -1;
 	l_a = (*data)->head_a;
 	l_b = (*data)->head_b;
@@ -142,26 +144,30 @@ void	sorting(t_data **data, int *c)
 	{
 		if (ft_strequ(line, "sa"))
 			stack_swap(&l_a);
-		if (ft_strequ(line, "sb"))
+		else if (ft_strequ(line, "sb"))
 			stack_swap(&l_b);
-		if (ft_strequ(line, "ss"))
+		else if (ft_strequ(line, "ss"))
 			stack_ss(&l_a, &l_b);
-		if (ft_strequ(line, "pb"))
+		else if (ft_strequ(line, "pb"))
 			stack_push(&l_a, &l_b);	
-		if (ft_strequ(line, "pa"))
+		else if (ft_strequ(line, "pa"))
 			stack_push(&l_b, &l_a);	
-		if (ft_strequ(line, "ra"))
+		else if (ft_strequ(line, "ra"))
 			stack_rot(&l_a);
-		if (ft_strequ(line, "rb"))
+		else if (ft_strequ(line, "rb"))
 			stack_rot(&l_b);
-		if (ft_strequ(line, "rr"))
+		else if (ft_strequ(line, "rr"))
 			stack_rr(&l_a, &l_b);	
-		if (ft_strequ(line, "rra"))
+		else if (ft_strequ(line, "rra"))
 			stack_rrot(&l_a);
-		if (ft_strequ(line, "rrb"))
+		else if (ft_strequ(line, "rrb"))
 			stack_rrot(&l_b);
-		if (ft_strequ(line, "rrr"))
-			stack_rrr(&l_a, &l_b);	
+		else if (ft_strequ(line, "rrr"))
+			stack_rrr(&l_a, &l_b);
+		else
+		{
+			return ;
+		}
 		printlists(l_a, l_b);	
 	}
 	isit(l_a, l_b, c);

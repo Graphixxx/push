@@ -6,12 +6,13 @@
 /*   By: swilson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/31 07:57:02 by swilson           #+#    #+#             */
-/*   Updated: 2018/08/02 13:57:32 by swilson          ###   ########.fr       */
+/*   Updated: 2018/08/03 14:52:53 by swilson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 void	insertlist(t_data **data, int n)
 {
@@ -34,27 +35,11 @@ void	insertlist(t_data **data, int n)
 	(*data)->head_a = i;
 }
 
-void	printlist(t_node *list)
-{
-	t_node *temp;
-
-	temp = list;
-	if (!temp)
-		return ;
-	while (temp)
-	{
-		ft_putnbr(temp->nbr);
-		ft_putchar('\n');
-		temp = temp->next;
-	}
-}
-
 int		setall(t_data **data, int *in)
 {
 	int i;
 	i = -1;
 	while (++i < (*data)->size)
 		insertlist(data, in[i]);
-//	printlist((*data)->head_a);
 	return (1);
 }

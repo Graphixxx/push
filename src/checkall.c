@@ -6,11 +6,12 @@
 /*   By: swilson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/29 10:37:19 by swilson           #+#    #+#             */
-/*   Updated: 2018/07/31 13:12:06 by swilson          ###   ########.fr       */
+/*   Updated: 2018/08/03 14:51:16 by swilson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <stdio.h>
 #include "../include/push_swap.h"
 
 int		checkmax_min(char *n)
@@ -90,6 +91,8 @@ int		checkstr(char **av, int *in, int *len)
 	}
 	if (!checkmax_min(av[1]))
 		return (0);
+	in[0] = ft_atoi(av[1]);
+	*len = 1;
 	return (2);
 }
 

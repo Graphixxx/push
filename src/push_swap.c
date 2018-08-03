@@ -6,7 +6,7 @@
 /*   By: swilson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/29 10:17:25 by swilson           #+#    #+#             */
-/*   Updated: 2018/08/03 11:32:29 by swilson          ###   ########.fr       */
+/*   Updated: 2018/08/03 13:43:29 by swilson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int		main(int ac, char **av)
 		c = checkall(ac, av, input, &(list->size));
 		if (c == 0)
 			ft_putendl("Error");
-		else if (c == 1)
+		else if (c)
 		{
 			setall(&list, input);
 			sorting(&list, &c);
@@ -49,8 +49,10 @@ int		main(int ac, char **av)
 		{
 			if (c == 2)
 				ft_putendl("OK");
-			else
+			else if (c == 1)
 				ft_putendl("Error");
+			else if (c == 3)
+				ft_putendl("KO");
 		}
 
 	}
