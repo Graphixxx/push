@@ -6,7 +6,7 @@
 /*   By: swilson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/03 08:35:07 by swilson           #+#    #+#             */
-/*   Updated: 2018/08/03 08:37:37 by swilson          ###   ########.fr       */
+/*   Updated: 2018/08/04 11:05:31 by swilson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int		main(int ac, char **av)
 			ft_putendl("Error");
 		else if (c == 1)
 		{
-			//printin(input, ac - 1);
 			setall(&list, input);
 			sorting(&list, &c);
 		}

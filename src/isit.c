@@ -6,7 +6,7 @@
 /*   By: swilson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/03 11:20:40 by swilson           #+#    #+#             */
-/*   Updated: 2018/08/03 13:45:53 by swilson          ###   ########.fr       */
+/*   Updated: 2018/08/04 11:06:46 by swilson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,6 @@ void	isit(t_node *l_a, t_node *l_b, int *c)
 
 	temp = l_a;
 	*c = 3;
-	///testing
-	if (temp)
-	{
-		printf("-->%d\n", temp->nbr);
-	}
 	while (temp && !l_b)
 	{
 		if (temp->next == NULL)

@@ -6,7 +6,7 @@
 /*   By: swilson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/31 13:17:10 by swilson           #+#    #+#             */
-/*   Updated: 2018/08/03 15:11:45 by swilson          ###   ########.fr       */
+/*   Updated: 2018/08/04 11:01:52 by swilson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ void	printlists(t_node *l_a, t_node *l_b)
 
 	temp = l_a;
 	temp1 = l_b;
-	//ft_putstr("rest---");
-	ft_putnbr(temp->nbr);
 	while (temp || temp1)
 	{
 		if (temp)
@@ -79,7 +77,7 @@ void	stack_rot(t_node **list)
 	t_node *temp;
 	t_node *last;
 
-	if (!(*list))
+	if (!(*list) || !(*list)->next)
 		return ;
 	temp = *list;
 	if (temp->next)
@@ -166,9 +164,9 @@ void	sorting(t_data **data, int *c)
 			stack_rrr(&l_a, &l_b);
 		else
 		{
-			return ;
+			break ;
 		}
-		printlists(l_a, l_b);	
 	}
+	printlists(l_a, l_b);	
 	isit(l_a, l_b, c);
 }
